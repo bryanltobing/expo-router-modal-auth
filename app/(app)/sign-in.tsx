@@ -1,11 +1,10 @@
 import { router } from "expo-router";
 import { Text, View } from "react-native";
 
-import { useSession, useURL } from "../../ctx";
+import { useSession } from "../../ctx";
 
 export default function SignIn() {
   const { signIn } = useSession();
-  const url = useURL();
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text
@@ -20,7 +19,7 @@ export default function SignIn() {
           router.replace("/");
         }}
       >
-        Sign In {url ? `to ${url}` : ""}
+        Sign In
       </Text>
     </View>
   );
