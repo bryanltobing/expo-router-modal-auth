@@ -1,7 +1,7 @@
 import { router } from "expo-router";
-import { Linking, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
-import { useSession, useURL } from "../ctx";
+import { useSession, useURL } from "../../ctx";
 
 export default function SignIn() {
   const { signIn } = useSession();
@@ -13,12 +13,11 @@ export default function SignIn() {
           signIn();
           // Navigate after signing in. You may want to tweak this to ensure sign-in is
           // successful before navigating.
-
-          if (url) {
-            Linking.openURL(url);
-          } else {
-            router.replace("/");
+          if (router.canGoBack()) {
+            router.back();
+            return;
           }
+          router.replace("/");
         }}
       >
         Sign In {url ? `to ${url}` : ""}

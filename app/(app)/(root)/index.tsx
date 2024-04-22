@@ -1,6 +1,6 @@
 import { Linking, Text, View } from "react-native";
 
-import { useSession } from "../../ctx";
+import { useSession } from "../../../ctx";
 
 export default function Index() {
   const { signOut } = useSession();
@@ -10,7 +10,6 @@ export default function Index() {
         onPress={() => {
           // The `app/(app)/_layout.tsx` will redirect to the sign-in screen.
           signOut();
-          Linking.openURL("moauth://");
         }}
       >
         Sign Out
