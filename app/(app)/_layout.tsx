@@ -13,7 +13,6 @@ export default function AppLayout() {
         options={{
           presentation: "modal",
           gestureEnabled: false,
-          gestureDirection: "horizontal",
         }}
       />
     </Stack>
